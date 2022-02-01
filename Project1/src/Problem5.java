@@ -5,10 +5,10 @@ public class Problem5
 
         int arr[] = {9,8,7,6,5,4,3,2,1,0};
         int n = arr.length;
-        int x = 10;
+
         //for(int i=10; i>-1; i--)
         {
-            System.out.println(binarySearch(arr, 0, n - 1, 9));
+            System.out.println(binarySearch(arr, 0, n - 1, 6));
         }
 
     }
