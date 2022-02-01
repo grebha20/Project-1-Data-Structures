@@ -1,48 +1,71 @@
-import java.util.ArrayList;
-
 public class Problem5
 {
-    public static void main(String[] args)
+    public static void main(String args[])
     {
-        Integer [] normal= new Integer[]{9,8,7,6,5,4,3,2,1,0};
-        Integer [] empty = new Integer[]{};
 
-        System.out.println("Normal Array");
-        for(int i=9; i>-1; i--)
+        int arr[] = {9,8,7,6,5,4,3,2,1,0};
+        int n = arr.length;
+        int x = 10;
+        //for(int i=10; i>-1; i--)
         {
-            System.out.println(search(normal,i, 0, normal.length));
+            System.out.println(binarySearch(arr, 0, n - 1, 1));
         }
 
-        System.out.println();
-
-        System.out.println("Empty Array");
-        System.out.println(search(empty,7, 0, empty.length));
     }
 
-    public static int search(Integer[] list,int num, int left, int right)
+    static int binarySearch(int arr[], int l, int r, int x)
     {
-        if(list.length==0)
-        {
-            return -1;
-        }
-        int middle=(left+(right-1))/2;
+        if (r >= l) {
+            int mid = l + (r - l) / 2;
 
-        if(right>=1)
-        {
-            if(list[middle]==num)
-            {
-                return middle;
-            }
-            else if(list[middle]<num)
-            {
-                search(list,num, middle+1, right);
-            }
-            else if(list[middle]>num)
-            {
-                search(list, num, left, middle-1);
-            }
+            // If the element is present at the
+            // middle itself
+            if (arr[mid] == x)
+                return mid;
+
+            // If element is smaller than mid, then
+            // it can only be present in left subarray
+            if (arr[mid] > x)
+                return binarySearch(arr, l, mid - 1, x);
+
+            // Else the element can only be present
+            // in right subarray
+            return binarySearch(arr, mid + 1, r, x);
         }
 
+        // We reach here when element is not present
+        // in array
         return -1;
     }
+//    public static void main(String args[])
+//    {
+//        int list[] = {9,8,7,6,5,4,3,2,1,0};
+//
+//        for(int i=10; i>0; i--)
+//        {
+//            System.out.println(binarySearch(list, i,0, list.length - 1));
+//        }
+//    }
+//
+//    static int binarySearch(int array[],int num, int left, int right)
+//    {
+//        if (right >= left)
+//        {
+//            int middle = left + (right - left) / 2;
+//
+//            if (array[middle] == num)
+//            {
+//                return middle;
+//            }
+//
+//            if (array[middle] > num)
+//            {
+//                return binarySearch(array, left, middle - 1, num);
+//            }
+//
+//            return binarySearch(array, middle + 1, right, num);
+//
+//        }
+//        return -1;
+//    }
 }
