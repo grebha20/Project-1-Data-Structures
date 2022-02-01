@@ -35,7 +35,7 @@ public class Problem5
             }
             else if(list[middle]<num)
             {
-                search(list,num, left, middle-1);
+                search(list,num, left, middle);
             }
             else if(list[middle]>num)
             {
