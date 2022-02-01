@@ -25,9 +25,9 @@ public class Problem5
         {
             return -1;
         }
-        int middle=(left+right)/2;
+        int middle=(left+(right-1))/2;
 
-        //if(left>=0 && right<=list.length)
+        if(right>=1)
         {
             if(list[middle]==num)
             {
@@ -35,11 +35,11 @@ public class Problem5
             }
             else if(list[middle]<num)
             {
-                search(list,num, left, middle);
+                search(list,num, middle+1, right);
             }
             else if(list[middle]>num)
             {
-                search(list, num, middle, right);
+                search(list, num, left, middle-1);
             }
         }
 
