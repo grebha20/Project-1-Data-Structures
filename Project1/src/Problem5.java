@@ -8,7 +8,7 @@ public class Problem5
         int x = 10;
         //for(int i=10; i>-1; i--)
         {
-            System.out.println(binarySearch(arr, 0, n - 1, 1));
+            System.out.println(binarySearch(arr, 0, n - 1, 9));
         }
 
     }
