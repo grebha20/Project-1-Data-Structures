@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Problem3.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Problem3.java</font>
+</center></td></tr></table>
+<pre><span class="s0">public class </span><span class="s1">Problem3</span>
+<span class="s1">{</span>
+    <span class="s0">public static void </span><span class="s1">main(String[] args)</span>
+    <span class="s1">{</span>
+        <span class="s1">Integer [] normal= </span><span class="s0">new </span><span class="s1">Integer[]{</span><span class="s2">9</span><span class="s0">,</span><span class="s2">1</span><span class="s0">,</span><span class="s2">3</span><span class="s0">,</span><span class="s2">5</span><span class="s0">,</span><span class="s2">2</span><span class="s0">,</span><span class="s2">7</span><span class="s0">,</span><span class="s2">6</span><span class="s0">,</span><span class="s2">0</span><span class="s0">,</span><span class="s2">4</span><span class="s0">,</span><span class="s2">8</span><span class="s1">}</span><span class="s0">;</span>
+        <span class="s1">Integer [] repeats= </span><span class="s0">new </span><span class="s1">Integer[]{</span><span class="s2">9</span><span class="s0">,</span><span class="s2">1</span><span class="s0">,</span><span class="s2">1</span><span class="s0">,</span><span class="s2">3</span><span class="s0">,</span><span class="s2">5</span><span class="s0">,</span><span class="s2">2</span><span class="s0">,</span><span class="s2">8</span><span class="s0">,</span><span class="s2">6</span><span class="s0">,</span><span class="s2">0</span><span class="s0">,</span><span class="s2">4</span><span class="s0">,</span><span class="s2">8</span><span class="s1">}</span><span class="s0">;</span>
+        <span class="s1">Integer [] empty = </span><span class="s0">new </span><span class="s1">Integer[]{}</span><span class="s0">;</span>
+
+        <span class="s1">Integer [] sorted1= sort(normal)</span><span class="s0">;</span>
+        <span class="s1">Integer [] sorted2= sort(repeats)</span><span class="s0">;</span>
+        <span class="s1">Integer [] sorted3= sort(empty)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Normal Array&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i=</span><span class="s2">0</span><span class="s0">; </span><span class="s1">i&lt;sorted1.length</span><span class="s0">; </span><span class="s1">i++)</span>
+        <span class="s1">{</span>
+            <span class="s1">System.out.print(sorted1[i] +</span><span class="s3">&quot; &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println()</span><span class="s0">;</span>
+        <span class="s1">System.out.println()</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Array with Repeats&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i=</span><span class="s2">0</span><span class="s0">; </span><span class="s1">i&lt;sorted2.length</span><span class="s0">; </span><span class="s1">i++)</span>
+        <span class="s1">{</span>
+            <span class="s1">System.out.print(sorted2[i] +</span><span class="s3">&quot; &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println()</span><span class="s0">;</span>
+        <span class="s1">System.out.println()</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Empty Array (sort returns an array containing -1 if empty)&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i=</span><span class="s2">0</span><span class="s0">; </span><span class="s1">i&lt;sorted3.length</span><span class="s0">; </span><span class="s1">i++)</span>
+        <span class="s1">{</span>
+            <span class="s1">System.out.print(sorted3[i] +</span><span class="s3">&quot; &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static </span><span class="s1">Integer[] sort(Integer[] unsorted)</span>
+    <span class="s1">{</span>
+        <span class="s0">if</span><span class="s1">(unsorted.length==</span><span class="s2">0</span><span class="s1">)</span>
+        <span class="s1">{</span>
+            <span class="s1">unsorted= </span><span class="s0">new </span><span class="s1">Integer[]{-</span><span class="s2">1</span><span class="s1">}</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i=</span><span class="s2">0</span><span class="s0">; </span><span class="s1">i&lt;unsorted.length</span><span class="s0">;</span><span class="s1">i++)</span>
+        <span class="s1">{</span>
+            <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">j=</span><span class="s2">0</span><span class="s0">; </span><span class="s1">j&lt;unsorted.length</span><span class="s0">; </span><span class="s1">j++)</span>
+            <span class="s1">{</span>
+                <span class="s0">if</span><span class="s1">(unsorted[i]&gt;=unsorted[j])</span>
+                <span class="s1">{</span>
+                    <span class="s0">int </span><span class="s1">sort=unsorted[i]</span><span class="s0">;</span>
+                    <span class="s1">unsorted[i]=unsorted[j]</span><span class="s0">;</span>
+                    <span class="s1">unsorted[j]=sort</span><span class="s0">;</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">unsorted</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
